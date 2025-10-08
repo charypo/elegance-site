@@ -5,45 +5,51 @@
   <title>Nontrivial Solutions</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- ====== CSS del template Elegance (mantén estos nombres como en tu proyecto) ====== -->
+  <!-- CSS del template Elegance (deja estos nombres como en tu proyecto) -->
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/font-awesome.min.css">
   <link rel="stylesheet" href="css/animate.css">
   <link rel="stylesheet" href="css/owl.carousel.css">
   <link rel="stylesheet" href="css/owl.theme.default.css">
-  <link rel="stylesheet" href="css/templatemo-style.css"><!-- si tu template usa otro nombre (p.ej. style.css), déjalo igual que lo tengas -->
+  <link rel="stylesheet" href="css/templatemo-style.css">
 
   <!-- Fuente opcional -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <!-- Ajustes mínimos no invasivos -->
+
+  <!-- Ajustes mínimos -->
   <style>
-    /* Respeta el look del template; solo toques suaves */
     body { font-family: "Jost", system-ui, Arial, Helvetica, sans-serif; }
     .img-rounded { border-radius: 12px; }
-    /* listas más prolijas en secciones de detalle */
     .feature-list { margin-left: 1rem; }
     .feature-list li { margin-bottom: .35rem; }
+
+    /* HERO con imagen (sin video) */
+    .hero-image{
+      position: relative;
+      min-height: 88vh;
+      display: flex;
+      align-items: center;
+      background: url("images/hero.jpg") center/cover no-repeat;
+      color: #fff;
+    }
+    .hero-image::before{
+      content:"";
+      position:absolute; inset:0;
+      background: rgba(0,0,0,.35);
+    }
+    .hero-image .section-inner{ position: relative; z-index: 1; }
+    .hero-image h1{
+      font-size: clamp(28px,5vw,52px);
+      line-height: 1.12;
+      margin: 0 0 8px;
+      color:#fff;
+    }
+
+    /* separador suave si tu CSS no lo trae */
+    .section + .section { border-top: 1px solid rgba(0,0,0,.06); }
   </style>
-  <style>
-  /* Asegura que el video sea fondo y no tape el contenido */
-  #myVideo{
-    position: fixed; /* fondo fijo */
-    top: 0; left: 0;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto; height: auto;
-    object-fit: cover;
-    z-index: -1;     /* <-- detrás de todo */
-    background: #000;
-  }
-  /* Asegura que las secciones queden por encima del video */
-  .section, .section-inner{
-    position: relative;
-    z-index: 1;
-  }
-</style>
 </head>
 <body>
 
@@ -52,7 +58,7 @@
     <div class="container-fluid">
       <div class="navbar">
         <a href="#" id="logo" title="Elegance by TemplateMo">
-          Elegance
+          ElegANCE
         </a>
 
         <div class="navigation-row">
@@ -73,11 +79,16 @@
     </div>
   </header>
 
-  <!-- ======================= HERO con VIDEO (slide01) ======================= -->
-  <!-- Dejamos exactamente el video del template (no tocar) -->
-  <video autoplay muted loop id="myVideo">
-    <source src="images/video-bg.mp4" type="video/mp4">
-  </video>
+  <!-- ======================= HERO con IMAGEN (slide01) ======================= -->
+  <div class="section animated-row hero-image" data-section="slide01">
+    <div class="section-inner">
+      <div class="row justify-content-center">
+        <div class="col-md-8 wide-col-laptop">
+          <h1>Manage Everyday Data and Tasks —<br>Paperless, Easier, Anywhere.</h1>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- ======================= ABOUT US (slide04) ======================= -->
   <div class="section animated-row" data-section="slide04">
@@ -140,7 +151,7 @@
                   </div>
                 </div>
               </div>
-              <!-- (Se eliminaron los demás ítems del demo para dejar solo 2) -->
+              <!-- (dejamos solo 2 items) -->
             </div>
           </div>
 
@@ -149,7 +160,7 @@
     </div>
   </div>
 
-  <!-- ======================= CHARTCADDY (detalle) — usamos slide03 para mantener patrón ======================= -->
+  <!-- ======================= CHARTCADDY (detalle) — slide03 ======================= -->
   <div class="section animated-row" data-section="slide03" id="slide03">
     <div class="section-inner">
       <div class="row justify-content-center">
@@ -273,7 +284,7 @@
     </div>
   </div>
 
-  <!-- ======================= JS del template ======================= -->
+  <!-- JS del template -->
   <script src="js/jquery.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/owl.carousel.min.js"></script>
