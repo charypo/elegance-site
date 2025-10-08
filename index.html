@@ -17,7 +17,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;600;700&display=swap" rel="stylesheet">
-
   <!-- Ajustes mínimos no invasivos -->
   <style>
     /* Respeta el look del template; solo toques suaves */
@@ -27,6 +26,24 @@
     .feature-list { margin-left: 1rem; }
     .feature-list li { margin-bottom: .35rem; }
   </style>
+  <style>
+  /* Asegura que el video sea fondo y no tape el contenido */
+  #myVideo{
+    position: fixed; /* fondo fijo */
+    top: 0; left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto; height: auto;
+    object-fit: cover;
+    z-index: -1;     /* <-- detrás de todo */
+    background: #000;
+  }
+  /* Asegura que las secciones queden por encima del video */
+  .section, .section-inner{
+    position: relative;
+    z-index: 1;
+  }
+</style>
 </head>
 <body>
 
