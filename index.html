@@ -5,7 +5,7 @@
   <title>Nontrivial Solutions</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- CSS del template Elegance (deja estos nombres como en tu proyecto) -->
+  <!-- CSS del template Elegance -->
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/font-awesome.min.css">
   <link rel="stylesheet" href="css/animate.css">
@@ -13,42 +13,24 @@
   <link rel="stylesheet" href="css/owl.theme.default.css">
   <link rel="stylesheet" href="css/templatemo-style.css">
 
-  <!-- Fuente opcional -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-  <!-- Ajustes mínimos -->
+  <!-- Ajustes mínimos para asegurar video de fondo y contenido encima -->
   <style>
-    body { font-family: "Jost", system-ui, Arial, Helvetica, sans-serif; }
-    .img-rounded { border-radius: 12px; }
-    .feature-list { margin-left: 1rem; }
-    .feature-list li { margin-bottom: .35rem; }
-
-    /* HERO con imagen (sin video) */
-    .hero-image{
-      position: relative;
-      min-height: 88vh;
-      display: flex;
-      align-items: center;
-      background: url("images/hero.jpg") center/cover no-repeat;
-      color: #fff;
+    /* Video como fondo (no tapa el contenido) */
+    #myVideo{
+      position: fixed;
+      right: 0; bottom: 0;
+      min-width: 100%; min-height: 100%;
+      width: auto; height: auto;
+      object-fit: cover;
+      z-index: -1;                 /* detrás */
+      background: #000;
     }
-    .hero-image::before{
-      content:"";
-      position:absolute; inset:0;
-      background: rgba(0,0,0,.35);
-    }
-    .hero-image .section-inner{ position: relative; z-index: 1; }
-    .hero-image h1{
-      font-size: clamp(28px,5vw,52px);
-      line-height: 1.12;
-      margin: 0 0 8px;
-      color:#fff;
-    }
-
-    /* separador suave si tu CSS no lo trae */
-    .section + .section { border-top: 1px solid rgba(0,0,0,.06); }
+    /* Garantiza que las secciones vayan por encima del video */
+    .section, .section-inner{ position: relative; z-index: 1; }
+    /* Detalles suaves */
+    .img-rounded{ border-radius:12px; }
+    .feature-list{ margin-left:1rem; }
+    .feature-list li{ margin-bottom:.35rem; }
   </style>
 </head>
 <body>
@@ -57,8 +39,9 @@
   <header id="header">
     <div class="container-fluid">
       <div class="navbar">
-        <a href="#" id="logo" title="Elegance by TemplateMo">
-          ElegANCE
+        <!-- LOGO como imagen -->
+        <a href="#slide01" id="logo" title="Nontrivial Solutions">
+          <img src="images/logo.png" alt="Nontrivial Solutions" style="height:40px;">
         </a>
 
         <div class="navigation-row">
@@ -66,11 +49,11 @@
             <button type="button" class="navbar-toggle"><i class="fa fa-bars"></i></button>
             <div class="nav-box navbar-collapse">
               <ul class="navigation-menu nav navbar-nav navbars" id="nav">
-                <!-- Menú final (sin Home) -->
-                <li data-menuanchor="slide04"><a href="#slide04">About Us</a></li>
-                <li data-menuanchor="slide07"><a href="#slide07">Testimonials</a></li>
-                <li data-menuanchor="slide06"><a href="#slide06">Our Solutions</a></li>
-                <li data-menuanchor="slide08"><a href="#slide08">Contact</a></li>
+                <!-- Menú con anclas numéricas del theme -->
+                <li data-menuanchor="slide02"><a href="#slide02">About Us</a></li>
+                <li data-menuanchor="slide06"><a href="#slide06">Testimonials</a></li>
+                <li data-menuanchor="slide05"><a href="#slide05">Our Solutions</a></li>
+                <li data-menuanchor="slide07"><a href="#slide07">Contact</a></li>
               </ul>
             </div>
           </nav>
@@ -79,19 +62,14 @@
     </div>
   </header>
 
-  <!-- ======================= HERO con IMAGEN (slide01) ======================= -->
-  <div class="section animated-row hero-image" data-section="slide01">
-    <div class="section-inner">
-      <div class="row justify-content-center">
-        <div class="col-md-8 wide-col-laptop">
-          <h1>Manage Everyday Data and Tasks —<br>Paperless, Easier, Anywhere.</h1>
-        </div>
-      </div>
-    </div>
-  </div>
+  <!-- ======================= HERO con VIDEO (slide01) ======================= -->
+  <!-- Cambia el src al nombre que le pongas a tu video -->
+  <video autoplay muted loop id="myVideo" playsinline>
+    <source src="images/hero.mp4" type="video/mp4">
+  </video>
 
-  <!-- ======================= ABOUT US (slide04) ======================= -->
-  <div class="section animated-row" data-section="slide04">
+  <!-- ======================= ABOUT US (slide02) — usa About Me del template ======================= -->
+  <div class="section animated-row" data-section="slide02">
     <div class="section-inner">
       <div class="row justify-content-center">
         <div class="col-md-8 wide-col-laptop">
@@ -114,8 +92,8 @@
     </div>
   </div>
 
-  <!-- ======================= OUR SOLUTIONS (slide06) — reutiliza “My Work” ======================= -->
-  <div class="section animated-row" data-section="slide06">
+  <!-- ======================= OUR SOLUTIONS (slide05) — usa My Work del template ======================= -->
+  <div class="section animated-row" data-section="slide05">
     <div class="section-inner">
       <div class="row justify-content-center">
         <div class="col-md-8 wide-col-laptop">
@@ -127,31 +105,31 @@
 
           <div class="gallery-section">
             <div class="gallery-list owl-carousel">
-              <!-- TILE 1: ChartCaddy -->
+              <!-- ITEM 1: ChartCaddy -->
               <div class="item animate" data-animate="fadeInUp">
                 <div class="portfolio-item">
                   <div class="thumb">
                     <img src="images/solutions-chartcaddy.jpg" alt="ChartCaddy">
                   </div>
                   <div class="thumb-inner animate" data-animate="fadeInUp">
-                    <h4><a href="#slide03">ChartCaddy</a></h4>
+                    <h4>ChartCaddy</h4>
                     <p>Secure online medical records for outpatient health providers—paperless and accessible anywhere.</p>
                   </div>
                 </div>
               </div>
-              <!-- TILE 2: NativeManage -->
+              <!-- ITEM 2: NativeManage -->
               <div class="item animate" data-animate="fadeInUp">
                 <div class="portfolio-item">
                   <div class="thumb">
                     <img src="images/solutions-nativemanage.jpg" alt="NativeManage">
                   </div>
                   <div class="thumb-inner animate" data-animate="fadeInUp">
-                    <h4><a href="#slide05">NativeManage</a></h4>
+                    <h4>NativeManage</h4>
                     <p>Centralized platform for member, service & program records—secure, customizable, and scalable.</p>
                   </div>
                 </div>
               </div>
-              <!-- (dejamos solo 2 items) -->
+              <!-- (dejamos solo 2 items; el resto del demo se eliminó) -->
             </div>
           </div>
 
@@ -160,66 +138,8 @@
     </div>
   </div>
 
-  <!-- ======================= CHARTCADDY (detalle) — slide03 ======================= -->
-  <div class="section animated-row" data-section="slide03" id="slide03">
-    <div class="section-inner">
-      <div class="row justify-content-center">
-        <div class="col-md-8 wide-col-laptop">
-          <div class="title-block animate" data-animate="fadeInUp">
-            <span>ChartCaddy</span>
-            <h2>ChartCaddy</h2>
-          </div>
-          <div class="row align-items-center">
-            <div class="col-md-6 animate" data-animate="fadeInUp">
-              <img src="images/solutions-chartcaddy.jpg" alt="ChartCaddy" class="img-fluid img-rounded">
-            </div>
-            <div class="col-md-6 animate" data-animate="fadeInUp">
-              <p>For outpatient health organizations that need simplicity without compromise. ChartCaddy makes medical records easy to manage, share, and secure. All your records are in one place and flow seamlessly—giving your staff more time for care, not paperwork.</p>
-              <h5 class="mt-3">Key benefits:</h5>
-              <ul class="feature-list">
-                <li>HIPAA-compliant — secure, cloud-based records</li>
-                <li>100% digital — eliminates paper forms</li>
-                <li>Accessible anywhere — on any desktop or mobile device</li>
-                <li>Highly customizable — aligns to each client’s unique workflows</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ======================= NATIVEMANAGE (detalle) — slide05 ======================= -->
-  <div class="section animated-row" data-section="slide05" id="slide05">
-    <div class="section-inner">
-      <div class="row justify-content-center">
-        <div class="col-md-8 wide-col-laptop">
-          <div class="title-block animate" data-animate="fadeInUp">
-            <span>NativeManage</span>
-            <h2>NativeManage</h2>
-          </div>
-          <div class="row align-items-center">
-            <div class="col-md-6 order-md-2 animate" data-animate="fadeInUp">
-              <img src="images/solutions-nativemanage.jpg" alt="NativeManage" class="img-fluid img-rounded">
-            </div>
-            <div class="col-md-6 order-md-1 animate" data-animate="fadeInUp">
-              <p>A modern platform built with Native organizations, for Native organizations. NativeManage brings together member, service, and program records into one secure digital system.</p>
-              <h5 class="mt-3">Key benefits:</h5>
-              <ul class="feature-list">
-                <li>Eliminates spreadsheets — and paper forms; keeps all records in one place</li>
-                <li>Customizable — aligned with each tribe’s unique administrative operations</li>
-                <li>Accessible anywhere — desktop or mobile, supporting leaders and staff on the go</li>
-                <li>Scalable — for small nations with growing needs</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ======================= TESTIMONIALS (slide07) ======================= -->
-  <div class="section animated-row" data-section="slide07">
+  <!-- ======================= TESTIMONIALS (slide06) ======================= -->
+  <div class="section animated-row" data-section="slide06">
     <div class="section-inner">
       <div class="row justify-content-center">
         <div class="col-md-8 wide-col-laptop">
@@ -258,8 +178,8 @@
     </div>
   </div>
 
-  <!-- ======================= CONTACT (slide08) ======================= -->
-  <div class="section animated-row" data-section="slide08">
+  <!-- ======================= CONTACT (slide07) ======================= -->
+  <div class="section animated-row" data-section="slide07">
     <div class="section-inner">
       <div class="row justify-content-center">
         <div class="col-md-8 wide-col-laptop">
